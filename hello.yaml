@@ -1,0 +1,12 @@
+"apple": "this is a fruit"
+1: "My roll number"
+---
+#lists
+ - apple
+ - banana
+ - chilly
+---
+fruits: [apple, banana, cherry]
+---
+{mango:"yellow", age:12}
+...

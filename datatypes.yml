@@ -1,0 +1,92 @@
+# My info - String datatypes
+name: "Abdullah"
+profession: swe
+hobbies: thinking
+---
+
+# Write a message in multiple lines
+message: | 
+  Hi buddy
+  How are you
+---
+
+# Write a single line message in multiple lines
+message: >
+  Hello boss
+  What is up
+---
+
+# same as 
+message: !!str Hello boss What is up
+---
+
+number: 5473
+marks: 98.7
+boolean: !!bool no # N, false, False, False
+#same for true   -> yes, y, Y, True, TRUE
+
+#specify the type - integer
+zero: !!int 0
+positiveNumber: !!int 23
+negativeNumber: !!int -23
+octalNumber: !!int 06574
+hexaNumber: !!int 0x45
+---
+
+#float
+marks: !!float 56.89
+infinite: !!float .inf
+not a number: !!float .nan
+
+#null
+surname: !!null Null # or null NULL ~
+~: this is a null key
+
+#dates and time
+date: !!timestamp 2022-08-08
+india time: 2022-08-08T02:23:23 +5:30
+no time zone: 2022-08-08T02:23:23
+
+#nested mappings
+name: Shaik Mohammad Abdullah
+role: !!map
+  job: swe
+  age: 22
+  profession: engineering
+
+# pairs: keys may have duplicate values
+#!!pairs
+---
+
+pair example: !!pairs 
+  job:SWE
+  job: engineering
+
+#same as
+pairs example: !!pairs [job:SWE, job:engineering]
+# Array of hashtables
+
+# !!set will allow you to have unique values
+names:  !!set
+  ? Kunal
+  ? Apoorv
+  ? Rahul
+
+# Reusing some properties using anchors
+likings: &likes
+  favFood: mango
+  notSoFavFood: grapes
+
+person1:
+  name: Shaik
+  <<: *likings
+  notSoFavFood: berries
+
+person2:
+  name: Abdullah
+  <<: *likings
+
+person3:
+  name: Mohammad
+  <<: *likings
+
